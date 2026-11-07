@@ -1,0 +1,49 @@
+{
+    "name": "prestashopheaven/runtime-cqrs",
+    "description": "The command bus of a PrestaHaven module: passes each command or query to its handler from the Symfony container, and gives hooks and legacy controllers safe access to it.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "George van Engers",
+            "email": "vanengers@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "PrestaShopHeaven\\Runtime\\Cqrs\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PrestaShopHeaven\\Runtime\\Cqrs\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.x-dev"
+        },
+        "prestashopheaven": {
+            "kind": "runtime",
+            "use-when": "A module dispatches commands and queries (DDD + CQRS, ARCH-08), or a hook, widget or legacy controller needs the command bus or another service of the module without breaking the page when the container is stale.",
+            "keywords": [
+                "command-bus",
+                "cqrs",
+                "command",
+                "query",
+                "handler",
+                "dispatch",
+                "service",
+                "container",
+                "tagged-locator"
+            ],
+            "phpstan-paths": [
+                "src",
+                "tests/phpstan/fixtures"
+            ]
+        }
+    }
+}
